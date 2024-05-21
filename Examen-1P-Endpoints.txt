@@ -1,0 +1,52 @@
+Nota: La entidad adicional para el examen es la entidad "Actors"
+Formato Json para probar las rutas solicitadas
+
+POST, GET, DELETE BY NAME (funciona si la tabla aun no esta relacionada)
+http://localhost:8011/api/v1/actors
+{
+    "birthday": "1989-15-20",
+    "enable": true,
+    "names": "James",
+    "phone": 981544321
+}
+
+CRUD: http://localhost:8011/api/v1/categories
+{
+    "enable": true,
+    "name": "Acción"
+}
+
+CRUD: http://localhost:8011/api/v1/directors
+{
+    "dni": "12344459X",
+    "enable": true,
+    "fullNames": "Steven",
+    "lastNames": "Spielberg"
+}
+
+CRUD: http://localhost:8011/api/v1/films
+{
+    "country": "Reino Unido",
+    "enable": true,
+    "name": "American Pie",
+    "release_date": "2024-05-29T00:12:00.000+00:00",
+    "actors": {
+        "id": 1,
+        "birthday": "1989-15-20",
+        "enable": true,
+        "names": "James",
+        "phone": 981544321
+    },
+    "category": {
+        "id": 1,
+        "name": "Acción",
+        "enable": true
+    },
+    "director": {
+        "id": 1,
+        "dni": "12344459X",
+        "enable": true,
+        "fullNames": "Steven",
+        "lastNames": "Spielberg"
+    }
+}

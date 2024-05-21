@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  backend_1:
+    image: bladimir-backend:1
+    environment:
+      # - SPRING_PROFILES_ACTIVE=prod
+    ports:
+      - target: 8011
+        published: 8011
+        protocol: tcp
+        mode: host
+    networks:
+      - desarrollo_net
+  dbclases_1:
+    image: postgres:15.0-bullseye
+    environment:
+      - TZ=America/Guayaquil
+      - POSTGRES_DB=hbo-db
+      - POSTGRES_PASSWORD=5366
+      - POSTGRES_USER=postgres
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - pg_tendencia_data:/var/lib/postgresql/data/pgdata
+    networks:
+      - desarrollo_net
+volumes:
+  pg_tendencia_data:
+    external: true
+networks:
+  desarrollo_net:
+    external: true
